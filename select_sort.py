@@ -21,6 +21,8 @@ def select_sort(nums):
  * 最差时间复杂度 - O(n^2)
  * 辅助空间 ------- O(1)
  * 稳定 ----------- 否
+ * [5*, 8, 5, 2, 9]
+ * [2, 8, 5, 5*, 9]
 '''
 if __name__ == '__main__':
     # initial disorder list
@@ -28,6 +30,6 @@ if __name__ == '__main__':
     random.shuffle(nums)
     print(nums) 
     # call function
-    nums = insert_sort(nums)
+    nums = select_sort(nums)
     print(nums)
     
