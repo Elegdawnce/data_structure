@@ -8,11 +8,11 @@ def helper(nums, left, right):
     # choose mid
     mid = int((left + right) / 2)
     # iteration
-    helper(nums, left, mid-1)
+    helper(nums, left, mid)
     helper(nums, mid+1, right)
     # combine 
     tmp = []
-    i = 0
+    i = left
     j = mid+1
     while i<= mid and j <= right:
         if nums[i] <= nums[j]:
@@ -22,13 +22,15 @@ def helper(nums, left, right):
             tmp.append(nums[j])
             j += 1
     
-    if i <= mid:
-        tmp = tmp + nums[i:mid+1]
-    if j <= right:
-        tmp = tmp + nums[j:]
+    while i <= mid:
+        tmp.append(nums[i])
+        i += 1
+    while j <= right:
+        tmp.append(nums[j])
+        j += 1
     # Assignment
     for i in range(len(tmp)):
-        nums[i] = tmp[i]
+        nums[left+i] = tmp[i]
 
 
 def merge_sort(nums):
