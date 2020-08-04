@@ -21,6 +21,27 @@ def insert_sort(nums):
     return nums
 
 
+def insert_sort(nums):
+    for i in range(1, len(nums)):
+        left = 0
+        right = i-1
+        flag = 0
+        while left < right:
+            mid = (left+right)//2
+            if nums[mid] == nums[i]:
+                pos = i
+                flag = 1
+                break
+            elif nums[mid] > nums[i]:
+                right = mid
+            else:
+                left = mid + 1
+        if flag == 0:
+            pos = left
+        nums = nums[:pos] + [nums[i]] + nums[pos:i] + nums[i+1:]
+    return nums
+
+
 
 '''
  * 直接插入排序
